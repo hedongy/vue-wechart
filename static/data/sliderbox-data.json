@@ -1,0 +1,26 @@
+[{
+  "src": "http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1708/24/c56/56539938_1503559919518_180x135.jpg",
+  "active": true,
+  "zIndex": 0,
+  "classes": null
+}, {
+  "src": "http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1708/24/c74/56542218_1503560778002_180x135.jpg",
+  "active": false,
+  "zIndex": 0,
+  "classes": null
+}, {
+  "src": "http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1708/24/c32/56537049_1503558865716_180x135.jpg",
+  "active": false,
+  "zIndex": 0,
+  "classes": null
+}, {
+  "src": "http://car3.autoimg.cn/cardfs/product/g15/M14/5C/95/s_autohomecar__wKgH5Vfss2mAfuCUAASKYLPA3no239.jpg",
+  "active": false,
+  "zIndex": 0,
+  "classes": null
+}, {
+  "src": "http://car3.autoimg.cn/cardfs/product/g14/M12/D4/96/s_autohomecar__wKgH1VeN5TKAIie1AAqtYFFoCxE615.jpg",
+  "active": false,
+  "zIndex": 0,
+  "classes": null
+}]

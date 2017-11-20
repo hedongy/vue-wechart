@@ -1,0 +1,46 @@
+[{
+  "id": 1,
+  "img": "http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1708/24/c56/56539938_1503559919518_180x135.jpg",
+  "title": "法拉利LaFerrari",
+  "desc": "法拉利LaFerrari平行进口价3333万起",
+  "isFull": false,
+  "usedBid": 10,
+  "fullBid": 100,
+  "price": 3333
+}, {
+  "id": 2,
+  "img": "http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1708/24/c74/56542218_1503560778002_180x135.jpg",
+  "title": "法拉利GTC4Lusso",
+  "desc": "法拉利GTC4Lusso",
+  "isFull": true,
+  "usedBid": 100,
+  "fullBid": 100,
+  "price": 280
+}, {
+  "id": 3,
+  "img": "http://img.pcauto.com.cn/images/upload/upc/tx/auto5/1708/24/c32/56537049_1503558865716_180x135.jpg",
+  "title": "法拉利F430",
+  "desc": "法拉利F430",
+  "isFull": false,
+  "usedBid": 10,
+  "fullBid": 100,
+  "price": 100
+}, {
+  "id": 4,
+  "img": "http://car3.autoimg.cn/cardfs/product/g15/M14/5C/95/s_autohomecar__wKgH5Vfss2mAfuCUAASKYLPA3no239.jpg",
+  "title": "保时捷911",
+  "desc": "保时捷911",
+  "isFull": false,
+  "usedBid": 10,
+  "fullBid": 100,
+  "price": 380
+}, {
+  "id": 5,
+  "img": "http://car3.autoimg.cn/cardfs/product/g14/M12/D4/96/s_autohomecar__wKgH1VeN5TKAIie1AAqtYFFoCxE615.jpg",
+  "title": "保时捷718",
+  "desc": "保时捷718",
+  "isFull": false,
+  "usedBid": 10,
+  "fullBid": 100,
+  "price": 120
+}]
