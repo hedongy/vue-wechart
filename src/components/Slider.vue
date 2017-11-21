@@ -4,7 +4,7 @@
         <div class="weui-slider">
             <div class="weui-slider__inner" ref="sliderInner">
                 <div :style="getSelectedTrack" class="weui-slider__track"></div>
-                <div @touch:tap="touchStart()" @touch:swipe="touchEnd()" :style="getSelectedHandler" class="weui-slider__handler"></div>
+                <div ref="sliderHandler" :style="getSelectedHandler" class="weui-slider__handler"></div>
             </div>
         </div>
         <div class="weui-slider-box__value">{{selected}}</div>
@@ -13,6 +13,9 @@
 
 <script>
 
+    /**
+     *
+     */
     export default {
         name: 'Slider',
         props: {
@@ -42,6 +45,7 @@
                 this.startLeft = Number.parseInt(this.selected) * this.totalLen / 100;
                 this.startX = e.changedTouches[0].clientX;
             },
+
             touchEnd(e) {
                 let dist = this.startLeft + e.changedTouches[0].clientX - this.startX;
                 dist = dist < 0 ? 0 : dist > this.totalLen ? this.totalLen : dist;
@@ -50,12 +54,27 @@
             }
         },
         created() {
-            this.selected = this.value;
-            this.$nextTick(() => {
-                this.totalLen = this.$refs.sliderInner.offsetWidth;
+            const that = this;
+            that.selected = that.value;
+            that.$nextTick(() => {
+                that.totalLen = $(that.$refs.sliderInner).width();
+                const sliderHandler = $(that.$refs.sliderHandler);
+                sliderHandler.on('touchstart', (e) => {
+                    that.touchStart(e);
+                }).on('touchmove', (e) => {
+                    that.touchEnd(e);
+                });
             });
         }
     };
 </script>
 
-<style></style>
+<style lang="scss">
+
+    @import "../assets/scss/base.scss";
+
+    .weui-slider__track{
+        background-color: $COLOR;
+    }
+
+</style>

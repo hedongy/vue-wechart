@@ -59,7 +59,10 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+
+    @import "../assets/scss/base.scss";
+
     .prompt-enter {
         transform: scale(0, 0);
     }
@@ -82,7 +85,7 @@
         transition: all .5s;
     }
     .prompt-container .weui-dialog__btn_info{
-        color: #ff0000;
+        color: $COLOR;
     }
     .prompt-container .input-content{
         border: 1px solid #eeeeee;

@@ -61,7 +61,10 @@
     };
 </script>
 
-<style>
+<style lang="scss">
+
+    @import "../assets/scss/base.scss";
+
     .searchbar-result-list{
         position: absolute;
         width: 100%;
@@ -71,6 +74,6 @@
         z-index: 1;
     }
     .weui-search-bar__cancel-btn{
-        color: #ff0000;
+        color: $COLOR;
     }
 </style>

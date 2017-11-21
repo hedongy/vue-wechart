@@ -23,7 +23,10 @@
     };
 </script>
 
-<style>
+<style lang="scss">
+
+    @import "../assets/scss/base.scss";
+
     .dh-btn{
         display: inline-block;
         border-radius: 5px;
@@ -32,7 +35,7 @@
         font-size: 12px;
     }
     .dh-btn.info{
-        background-color: #ff0000;
+        background-color: $COLOR;
         color: #ffffff;
     }
     .dh-btn.disable{

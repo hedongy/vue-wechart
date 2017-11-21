@@ -84,7 +84,10 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+
+    @import "../assets/scss/base.scss";
+
     .weui-badge.show-num{
         position: absolute;
         top: -2px;
@@ -101,6 +104,6 @@
         position: relative;
     }
     .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__icon>i, .weui-tabbar__item.weui-bar__item_on .weui-tabbar__label{
-        color: #ff0000;
+        color: $COLOR;
     }
 </style>

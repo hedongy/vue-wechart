@@ -51,7 +51,10 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+
+    @import "../assets/scss/base.scss";
+
     .alert-enter {
         transform: scale(0, 0);
     }
@@ -75,6 +78,6 @@
     }
 
     .alert-container .weui-dialog__btn{
-        color: #ff0000;
+        color: $COLOR;
     }
 </style>

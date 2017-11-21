@@ -63,7 +63,10 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+
+    @import "../assets/scss/base.scss";
+
     .conform-enter {
         transform: scale(0, 0);
     }
@@ -87,6 +90,6 @@
     }
 
     .conform-container .weui-dialog__btn_info{
-        color: #ff0000;
+        color: $COLOR;
     }
 </style>
