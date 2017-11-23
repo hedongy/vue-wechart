@@ -19,6 +19,10 @@ import LoadMore from './components/LoadMore';
 import Scroll from './components/Scroll';
 import Actionsheet from './components/Actionsheet';
 import Slider from './components/Slider';
+import Progress from './components/Progress';
+import Preview from './components/Preview';
+import Navbar from './components/Navbar';
+import Switchs from './components/Switchs';
 
 Vue.config.productionTip = false;
 
@@ -37,7 +41,11 @@ const components = [
     LoadMore,
     Scroll,
     Actionsheet,
-    Slider
+    Slider,
+    Progress,
+    Preview,
+    Navbar,
+    Switchs
 ];
 
 components.map(component => {

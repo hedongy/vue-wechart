@@ -130,7 +130,10 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+
+    @import "../assets/scss/base.scss";
+
     .weui-media-box__thumb.title-img{
         height: 60px;
         border-radius: 3px;
@@ -141,7 +144,7 @@
         font-size: 12px;
     }
     .rolling-box{
-        color: #ff0000;
+        color: $COLOR;
         font-size: 14px;
     }
 </style>
