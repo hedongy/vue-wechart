@@ -46,6 +46,39 @@ class Request {
             });
         });
     }
+
+    /**
+     * 上传
+     * @param option {
+     *     url: String,
+     *     fileElementId: String,
+     *     callback(err, data): Function
+     * }
+     */
+    static upload(option) {
+        Tools.showLoading();
+        const url = `${Config.SERVICE}${option.url}`;
+        const xhr = new XMLHttpRequest();
+        const fd = new FormData();
+        xhr.open('POST', url, true);
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                Tools.hideLoading();
+                const responseText = xhr.responseText || '{}';
+                const responseJson = JSON.parse(responseText);
+                option.callback && option.callback(null, responseJson);
+            }
+        };
+        xhr.onerror = (err) => {
+            Tools.hideLoading();
+            option.callback && option.callback(err);
+        };
+        const fileInputEle = document.getElementById(option.fileElementId);
+        for (let i = 0; i < fileInputEle.files.length; i++) {
+            fd.append(option.fileName, fileInputEle.files[i]);
+        }
+        xhr.send(fd);
+    }
 }
 
 /**

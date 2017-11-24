@@ -23,6 +23,7 @@ import Progress from './components/Progress';
 import Preview from './components/Preview';
 import Navbar from './components/Navbar';
 import Switchs from './components/Switchs';
+import Upload from './components/Upload';
 
 Vue.config.productionTip = false;
 
@@ -45,7 +46,8 @@ const components = [
     Progress,
     Preview,
     Navbar,
-    Switchs
+    Switchs,
+    Upload
 ];
 
 components.map(component => {
