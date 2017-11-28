@@ -9,7 +9,7 @@
             <ul class="weui-uploader__files">
                 <li class="weui-uploader__file" :style="getBackgroundImage(item)" v-for="item in list"></li>
             </ul>
-            <div class="weui-uploader__input-box" :id="inputContainerId">
+            <div v-show="showFlag" class="weui-uploader__input-box" :id="inputContainerId">
                 <input :id="inputId" class="weui-uploader__input" type="file" accept="image/*" v-if="!multiple">
                 <input :id="inputId" class="weui-uploader__input" type="file" accept="image/*" v-else-if="multiple" multiple>
             </div>
@@ -20,17 +20,14 @@
 <script>
 
     import Tools from '../bean/Tools';
-    import Request from '../bean/Request';
 
     /**
      *  option {
-     *      url: String,
      *      title: String,
      *      fileName: String,
      *      multiple: Boolean,
-     *      urlKey: String,
-     *      formatDate(data): Function,
-     *      callback(err, data): Function
+     *      maxSize: Number,
+     *      callback(inputElementId, hooks): Function
      *  }
      */
     export default {
@@ -44,46 +41,32 @@
         data() {
             return {
                 list: Array.of(),
+                showFlag: true,
                 optionObject: {
                     title: '文件上传',
                     fileName: 'file',
                     multiple: false,
-                    urlKey: 'url'
+                    maxSize: 0
                 },
                 inputContainerId: Tools.getUUID(),
                 inputId: Tools.getUUID()
             };
         },
+
         methods: {
 
             /**
              * 获取背景图片
              */
             getBackgroundImage(item) {
-                return `background-image: url(${item[this.optionObject.urlKey]});`;
+                return `background-image: url(${item});`;
             },
 
             /**
              * 上传事件
              */
             uploadEvent() {
-                const that = this;
-                Request.upload({
-                    url: that.optionObject.url,
-                    fileElementId: that.inputId,
-                    fileName: that.optionObject.fileName,
-                    callback(err, data) {
-                        // 成功
-                        if (!err) {
-                            that.optionObject.formatDate && that.optionObject.formatDate(data);
-                            that.optionObject.callback && that.optionObject.callback(null, data);
-                            that.list = that.list.concat(data);
-                            return;
-                        }
-                        // 失败
-                        that.optionObject.callback && that.optionObject.callback(err);
-                    }
-                });
+                this.optionObject.callback && this.optionObject.callback(this.inputId, this.hooks);
             },
 
             /**
@@ -103,6 +86,29 @@
                 $(`#${this.inputId}`).on('change', () => {
                     this.uploadEvent();
                 });
+            },
+
+            /**
+             * 列表钩子
+             * @param list
+             */
+            hooks(list) {
+                if (!this.maxSize || (this.maxSize && list && this.maxSize >= list.length)) {
+                    this.list = list;
+                } else if (!list) {
+                    Tools.showToast({
+                        content: '传入数据列表不能为空'
+                    });
+                } else if (this.maxSize && this.maxSize < list.length) {
+                    Tools.showToast({
+                        content: `传入数据列表最大长度为${this.maxSize}`
+                    });
+                } else {
+                    Tools.showToast({
+                        content: '未知错误'
+                    });
+                }
+                this.resetFileInputElement();
             }
         },
         created() {
