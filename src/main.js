@@ -24,6 +24,7 @@ import Preview from './components/Preview';
 import Navbar from './components/Navbar';
 import Switchs from './components/Switchs';
 import Upload from './components/Upload';
+import Radio from './components/Radio';
 
 Vue.config.productionTip = false;
 
@@ -47,7 +48,8 @@ const components = [
     Preview,
     Navbar,
     Switchs,
-    Upload
+    Upload,
+    Radio
 ];
 
 components.map(component => {

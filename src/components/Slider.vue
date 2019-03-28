@@ -7,18 +7,22 @@
                 <div ref="sliderHandler" :style="getSelectedHandler" class="weui-slider__handler"></div>
             </div>
         </div>
-        <div class="weui-slider-box__value">{{selected}}</div>
+        <div class="weui-slider-box__value" v-show="showValue">{{selected}}</div>
     </div>
 </template>
 
 <script>
 
     /**
-     *
+     * showValue: Boolean // 是否显示数值，默认不显示
      */
     export default {
         name: 'Slider',
         props: {
+            showValue: {
+                type: Boolean,
+                default: false
+            },
             value: {
                 type: Number,
                 default: 0
@@ -51,6 +55,7 @@
                 dist = dist < 0 ? 0 : dist > this.totalLen ? this.totalLen : dist;
                 this.selected =  Number.parseInt(dist / this.totalLen * 100);
                 e.preventDefault();
+                this.$emit('input', this.selected);
             }
         },
         created() {

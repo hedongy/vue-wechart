@@ -11,6 +11,7 @@
 <script>
     import Tools from "../bean/Tools";
 
+
     export default {
         name: 'Scroll',
         props: {

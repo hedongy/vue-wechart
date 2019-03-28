@@ -13,12 +13,13 @@
                     <div class="weui-media-box__bd">
                         <h4 class="weui-media-box__title">{{item.title}}</h4>
                         <p class="weui-media-box__desc">
-                        <div class="weui-flex">
-                            <div class="weui-flex__item"><div class="placeholder">价格：{{item.price}}万</div></div>
-                            <div class="weui-flex__item"><div class="placeholder">标率：{{item.usedBid / item.fullBid * 100}}%</div></div>
-                        </div>
+                            <div class="weui-flex">
+                                <div class="weui-flex__item"><div class="placeholder">价格：{{item.price}}万</div></div>
+                                <div class="weui-flex__item"><div class="placeholder">标率：{{item.usedBid / item.fullBid * 100}}%</div></div>
+                            </div>
                         </p>
                     </div>
+
                     <div style="flex-grow: 0; min-width: 50px;">
                         <Button :option="showBtn(item)" @btnevent="bid(item)"></Button>
                     </div>
@@ -78,6 +79,7 @@
              * 投标开奖
              */
             bid(item) {
+                // console.log(this.sliderValue);
                 if (item.isFull) {
                     return;
                 }
